@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armin | Portfolio</title>
+    <meta name="description" content="Personal portfolio and CV">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="container">
+        <header class="glass-panel profile-section fade-in">
+            <div class="profile-info">
+                <h1>Armin</h1>
+                <p class="subtitle">Software Engineer & Researcher</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/your-linkedin" target="_blank" aria-label="LinkedIn" class="social-btn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/your-github" target="_blank" aria-label="GitHub" class="social-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:your.email@example.com" aria-label="Email" class="social-btn">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-panel cv-section fade-in delay-1">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>Senior Software Engineer</h3>
+                    <p class="timeline-date">2023 - Present</p>
+                    <p>Developing scalable web applications and leading a team of developers. Focused on performance and beautiful UI.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>Software Developer</h3>
+                    <p class="timeline-date">2020 - 2023</p>
+                    <p>Built and maintained several core microservices. Reduced deployment times by 40% using modern CI/CD pipelines.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-panel cv-section fade-in delay-2">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>M.Sc. in Computer Science</h3>
+                    <p class="timeline-date">University Name &bull; 2018 - 2020</p>
+                    <p>Specialization in Software Engineering and Artificial Intelligence.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h3>B.Sc. in Computer Science</h3>
+                    <p class="timeline-date">University Name &bull; 2014 - 2018</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="glass-panel cv-section fade-in delay-3">
+            <h2><i class="fas fa-code"></i> Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Armin. Built with <i class="fas fa-heart"></i></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
