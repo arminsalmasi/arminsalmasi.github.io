@@ -32,13 +32,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const blob1 = document.querySelector('.blob-1');
     const blob2 = document.querySelector('.blob-2');
 
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
+    let isTicking = false;
+    let mouseX = 0;
+    let mouseY = 0;
 
-        if (blob1 && blob2) {
-            blob1.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
-            blob2.style.transform = `translate(-${x * 30}px, -${y * 30}px)`;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        if (!isTicking) {
+            window.requestAnimationFrame(() => {
+                const x = mouseX / window.innerWidth;
+                const y = mouseY / window.innerHeight;
+
+                if (blob1 && blob2) {
+                    blob1.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+                    blob2.style.transform = `translate(-${x * 30}px, -${y * 30}px)`;
+                }
+
+                isTicking = false;
+            });
+            isTicking = true;
         }
     });
 });
