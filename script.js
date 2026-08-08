@@ -1,73 +1,77 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Set current year in footer
+    // Current Year
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Intersection Observer for smooth scroll animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -40px 0px',
-        threshold: 0.1
-    };
+    // Robotic Typewriter Effect
+    const phrases = [
+        "Software Engineer & Model Developer",
+        "Computational Materials Scientist",
+        "Agentic AI & Multi-Agent Orchestration",
+        "MLIP Fine-Tuning & High-Throughput Screening",
+        "Ph.D. in Engineering Materials Science (KTH)"
+    ];
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
+    const typewriterEl = document.getElementById('typewriter');
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 70;
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => {
-        observer.observe(el);
-    });
+    function typeEffect() {
+        if (!typewriterEl) return;
 
-    // Certification filter logic
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const certCards = document.querySelectorAll('.cert-card');
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 35;
+        } else {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 65;
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            typingSpeed = 2200; // Pause at end of phrase
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 500; // Pause before next phrase
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+    }
+
+    typeEffect();
+
+    // Terminal Filter Logic for Certifications
+    const filterButtons = document.querySelectorAll('.term-filter-btn');
+    const certItems = document.querySelectorAll('.cert-cli-item');
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const filterValue = btn.getAttribute('data-filter');
+            const filterVal = btn.getAttribute('data-filter');
 
-            certCards.forEach(card => {
-                if (filterValue === 'all') {
-                    card.classList.remove('hidden');
+            certItems.forEach(item => {
+                if (filterVal === 'all') {
+                    item.classList.remove('hidden');
                 } else {
-                    const category = card.getAttribute('data-category');
-                    if (category === filterValue) {
-                        card.classList.remove('hidden');
+                    const category = item.getAttribute('data-category');
+                    if (category === filterVal) {
+                        item.classList.remove('hidden');
                     } else {
-                        card.classList.add('hidden');
+                        item.classList.add('hidden');
                     }
                 }
             });
         });
     });
-
-    // Interactive ambient blobs slightly tracking mouse movement
-    const blob1 = document.querySelector('.blob-1');
-    const blob2 = document.querySelector('.blob-2');
-
-    if (blob1 && blob2 && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-        let ticking = false;
-        document.addEventListener('mousemove', (e) => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const x = (e.clientX / window.innerWidth - 0.5) * 40;
-                    const y = (e.clientY / window.innerHeight - 0.5) * 40;
-                    blob1.style.transform = `translate(${x}px, ${y}px)`;
-                    blob2.style.transform = `translate(${-x}px, ${-y}px)`;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-    }
 });
