@@ -5,24 +5,21 @@ document.addEventListener('DOMContentLoaded', () => {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Intersection Observer for scroll animations
+    // Intersection Observer for smooth scroll animations
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
+        rootMargin: '0px 0px -40px 0px',
         threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Optional: stop observing once it has become visible
-                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Select all elements with the fade-in class
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(el => {
         observer.observe(el);
@@ -43,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (filterValue === 'all') {
                     card.classList.remove('hidden');
                 } else {
-                    if (card.getAttribute('data-category') === filterValue) {
+                    const category = card.getAttribute('data-category');
+                    if (category === filterValue) {
                         card.classList.remove('hidden');
                     } else {
                         card.classList.add('hidden');
@@ -53,17 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Interactive blobs following mouse slightly
+    // Interactive ambient blobs slightly tracking mouse movement
     const blob1 = document.querySelector('.blob-1');
     const blob2 = document.querySelector('.blob-2');
 
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        if (blob1 && blob2) {
-            blob1.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
-            blob2.style.transform = `translate(-${x * 30}px, -${y * 30}px)`;
-        }
-    });
+    if (blob1 && blob2 && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        let ticking = false;
+        document.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const x = (e.clientX / window.innerWidth - 0.5) * 40;
+                    const y = (e.clientY / window.innerHeight - 0.5) * 40;
+                    blob1.style.transform = `translate(${x}px, ${y}px)`;
+                    blob2.style.transform = `translate(${-x}px, ${-y}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    }
 });
