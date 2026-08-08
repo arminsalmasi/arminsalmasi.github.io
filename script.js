@@ -1,74 +1,118 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Current Year
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+    // 1. Current Date in Tmux Status Bar
+    const dateEl = document.getElementById('current-date');
+    if (dateEl) {
+        const now = new Date();
+        const options = { year: 'numeric', month: 'short', day: '2-digit' };
+        dateEl.textContent = now.toLocaleDateString('en-US', options);
     }
 
-    // Robotic Typewriter Effect
-    const phrases = [
-        "Software Engineer & Model Developer",
-        "Computational Materials Scientist",
-        "Agentic AI & Multi-Agent Orchestration",
-        "MLIP Fine-Tuning & High-Throughput Screening",
-        "Ph.D. in Engineering Materials Science (KTH)"
+    // 2. Robotic Typewriter Effect
+    const titles = [
+        "Software Engineer & Model Developer @ Thermo-Calc",
+        "Computational Materials Scientist (Ph.D. KTH)",
+        "Agentic AI & Multi-Agent Orchestration Architect",
+        "MLIP Fine-Tuning (MACE, Meta's UMA, FAIRChem)",
+        "High-Performance Computing & Scientific Simulation"
     ];
 
     const typewriterEl = document.getElementById('typewriter');
-    let phraseIndex = 0;
-    let charIndex = 0;
+    let titleIdx = 0;
+    let charIdx = 0;
     let isDeleting = false;
-    let typingSpeed = 70;
+    let typingSpeed = 65;
 
-    function typeEffect() {
+    function runTypewriter() {
         if (!typewriterEl) return;
 
-        const currentPhrase = phrases[phraseIndex];
+        const currentText = titles[titleIdx];
 
         if (isDeleting) {
-            typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 35;
+            typewriterEl.textContent = currentText.substring(0, charIdx - 1);
+            charIdx--;
+            typingSpeed = 30;
         } else {
-            typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 65;
+            typewriterEl.textContent = currentText.substring(0, charIdx + 1);
+            charIdx++;
+            typingSpeed = 60;
         }
 
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            typingSpeed = 2200; // Pause at end of phrase
+        if (!isDeleting && charIdx === currentText.length) {
+            typingSpeed = 2200; // Pause when title is fully typed
             isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
+        } else if (isDeleting && charIdx === 0) {
             isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 500; // Pause before next phrase
+            titleIdx = (titleIdx + 1) % titles.length;
+            typingSpeed = 400; // Pause before typing next title
         }
 
-        setTimeout(typeEffect, typingSpeed);
+        setTimeout(runTypewriter, typingSpeed);
     }
 
-    typeEffect();
+    runTypewriter();
 
-    // Terminal Filter Logic for Certifications
-    const filterButtons = document.querySelectorAll('.term-filter-btn');
-    const certItems = document.querySelectorAll('.cert-cli-item');
+    // 3. Interactive Tmux Tabs with Scroll Spy
+    const tabs = document.querySelectorAll('.tmux-tab');
+    const sections = document.querySelectorAll('.tmux-pane');
+    const activeTabStatus = document.querySelector('.seg-active-tab');
+
+    // Click handler for tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            const tabText = tab.textContent.trim();
+            if (activeTabStatus) {
+                activeTabStatus.innerHTML = `<i class="fas fa-window-restore"></i> ${tabText}*`;
+            }
+        });
+    });
+
+    // Scroll spy for panes
+    window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 140;
+            if (window.pageYOffset >= sectionTop) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        if (currentSectionId) {
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('href') === `#${currentSectionId}`) {
+                    tab.classList.add('active');
+                    const tabText = tab.textContent.trim();
+                    if (activeTabStatus) {
+                        activeTabStatus.innerHTML = `<i class="fas fa-window-restore"></i> ${tabText}*`;
+                    }
+                }
+            });
+        }
+    });
+
+    // 4. Certification Category Filter
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const certBoxes = document.querySelectorAll('.cert-box');
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const filterVal = btn.getAttribute('data-filter');
+            const filter = btn.getAttribute('data-filter');
 
-            certItems.forEach(item => {
-                if (filterVal === 'all') {
-                    item.classList.remove('hidden');
+            certBoxes.forEach(box => {
+                if (filter === 'all') {
+                    box.classList.remove('hidden');
                 } else {
-                    const category = item.getAttribute('data-category');
-                    if (category === filterVal) {
-                        item.classList.remove('hidden');
+                    const category = box.getAttribute('data-category');
+                    if (category === filter) {
+                        box.classList.remove('hidden');
                     } else {
-                        item.classList.add('hidden');
+                        box.classList.add('hidden');
                     }
                 }
             });

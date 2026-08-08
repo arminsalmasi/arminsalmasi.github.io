@@ -3,528 +3,672 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>armin@salmasi:~$</title>
-    <meta name="description" content="Terminal portfolio of Armin Salmasi, Ph.D. — Software Engineer & Computational Materials Scientist.">
+    <title>Armin Salmasi | Software Engineer &amp; Computational Scientist</title>
+    <meta name="description" content="Portfolio of Armin Salmasi, Ph.D. — Software Engineer &amp; Computational Materials Scientist specializing in AI, MLIPs, and High-Performance Computing.">
     <meta name="author" content="Armin Salmasi">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="terminal-theme">
-    <!-- Subtle Background Scanlines / Grid -->
-    <div class="terminal-grid-bg"></div>
+<body class="homebrew-theme">
+    <!-- Ambient Background Lighting -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="scanline-overlay"></div>
 
-    <main class="terminal-container">
-        <!-- Terminal Window Frame -->
-        <div class="terminal-window">
-            <!-- Window Top Bar -->
-            <div class="terminal-topbar">
-                <div class="terminal-controls">
+    <div class="tmux-wrapper">
+        <!-- macOS / Tmux Main Window Frame -->
+        <main class="tmux-window">
+            <!-- Window Topbar -->
+            <header class="window-topbar">
+                <div class="window-controls">
                     <span class="control close"></span>
                     <span class="control minimize"></span>
                     <span class="control maximize"></span>
                 </div>
-                <div class="terminal-title">
-                    <i class="fas fa-terminal"></i> armin@salmasi:~ (zsh)
+                <div class="window-title">
+                    <i class="fas fa-terminal"></i>
+                    <span>armin@mbp: ~/portfolio — (tmux 3.4)</span>
                 </div>
-                <div class="terminal-status">
-                    <span class="status-dot"></span> online
+                <div class="window-session">
+                    <span class="pulse-indicator"></span>
+                    <span class="session-label">SESSION: ACTIVE</span>
                 </div>
-            </div>
+            </header>
 
-            <!-- Terminal Content Area -->
-            <div class="terminal-body">
-                <!-- Header / Intro Section -->
-                <section class="term-section">
-                    <div class="prompt-line">
-                        <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cmd-text">whoami --verbose</span>
+            <!-- Tmux Tabs Bar -->
+            <nav class="tmux-tabs" aria-label="Tmux Windows">
+                <a href="#profile" class="tmux-tab active"><span class="tab-index">[0]</span> <i class="fas fa-user-astronaut"></i> profile*</a>
+                <a href="#experience" class="tmux-tab"><span class="tab-index">[1]</span> <i class="fas fa-briefcase"></i> experience</a>
+                <a href="#skills" class="tmux-tab"><span class="tab-index">[2]</span> <i class="fas fa-layer-group"></i> skills</a>
+                <a href="#education" class="tmux-tab"><span class="tab-index">[3]</span> <i class="fas fa-graduation-cap"></i> education</a>
+                <a href="#certifications" class="tmux-tab"><span class="tab-index">[4]</span> <i class="fas fa-certificate"></i> certs</a>
+                <a href="#publications" class="tmux-tab"><span class="tab-index">[5]</span> <i class="fas fa-book"></i> papers</a>
+            </nav>
+
+            <!-- Tmux Panes Container -->
+            <div class="tmux-content">
+                <!-- HERO / PROFILE PANE -->
+                <section class="tmux-pane hero-pane" id="profile">
+                    <div class="pane-header">
+                        <span class="pane-tag"><i class="fas fa-id-card"></i> PANE 0:0 // IDENTITY &amp; OVERVIEW</span>
+                        <span class="pane-cmd">$ whoami --verbose</span>
                     </div>
-                    
-                    <div class="term-output hero-output">
-                        <div class="hero-header">
-                            <h1 class="glitch-title">Armin Salmasi<span class="cursor-blink">_</span></h1>
-                            <p class="role-typewriter">
-                                <span class="text-accent-cyan">&gt;</span> <span id="typewriter"></span><span class="cursor-type">|</span>
-                            </p>
-                            <p class="term-meta">
-                                <span class="meta-tag"><i class="fas fa-map-marker-alt text-accent-green"></i> Stockholm, Sweden</span>
-                                <span class="meta-tag"><i class="fas fa-microchip text-accent-cyan"></i> Thermo-Calc Software AB</span>
-                                <span class="meta-tag"><i class="fas fa-graduation-cap text-accent-amber"></i> Ph.D. KTH</span>
-                            </p>
-                        </div>
 
-                        <!-- Quick Action Links / Commands -->
-                        <div class="term-actions">
-                            <a href="cv_cs.pdf" target="_blank" class="term-btn btn-primary" title="Download Computer Science CV">
-                                <i class="fas fa-file-code"></i> $ get --cv=cs.pdf
-                            </a>
-                            <a href="cv_ms.pdf" target="_blank" class="term-btn btn-secondary" title="Download Materials Science CV">
-                                <i class="fas fa-file-alt"></i> $ get --cv=ms.pdf
-                            </a>
-                            <a href="https://github.com/arminsalmasi" target="_blank" rel="noopener noreferrer" class="term-btn btn-outline" title="GitHub">
-                                <i class="fab fa-github"></i> github
-                            </a>
-                            <a href="https://www.linkedin.com/in/arminsalmasi/" target="_blank" rel="noopener noreferrer" class="term-btn btn-outline" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i> linkedin
-                            </a>
-                            <a href="https://scholar.google.se/citations?hl=en&user=nX30O0sAAAAJ" target="_blank" rel="noopener noreferrer" class="term-btn btn-outline" title="Google Scholar">
-                                <i class="fas fa-graduation-cap"></i> scholar
-                            </a>
-                            <a href="mailto:arminsalmasi@gmail.com" class="term-btn btn-outline" title="Email">
-                                <i class="fas fa-envelope"></i> email
-                            </a>
+                    <div class="pane-body hero-body">
+                        <div class="hero-main">
+                            <div class="hero-headline">
+                                <span class="cli-prompt">armin@stockholm:~$</span>
+                                <h1 class="hero-name">Armin Salmasi <span class="status-badge">Ph.D.</span></h1>
+                                
+                                <div class="typewriter-container">
+                                    <span class="type-arrow">&gt;&gt;</span>
+                                    <span id="typewriter" class="typewriter-text"></span>
+                                    <span class="type-cursor">_</span>
+                                </div>
+                            </div>
+
+                            <!-- Highlights Metrics -->
+                            <div class="metric-ribbon">
+                                <div class="metric-card">
+                                    <i class="fas fa-building text-green"></i>
+                                    <div class="metric-info">
+                                        <span class="metric-val">Thermo-Calc</span>
+                                        <span class="metric-lbl">Software &amp; Model Dev</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <i class="fas fa-university text-cyan"></i>
+                                    <div class="metric-info">
+                                        <span class="metric-val">KTH Royal Inst.</span>
+                                        <span class="metric-lbl">Ph.D. Materials Science</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <i class="fas fa-brain text-purple"></i>
+                                    <div class="metric-info">
+                                        <span class="metric-val">MIT (2026)</span>
+                                        <span class="metric-lbl">Applied AI &amp; Data Sci</span>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <i class="fas fa-file-alt text-amber"></i>
+                                    <div class="metric-info">
+                                        <span class="metric-val">8+ Papers</span>
+                                        <span class="metric-lbl">Peer-Reviewed / DIVA</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action & Download Buttons -->
+                            <div class="hero-actions">
+                                <a href="cv_cs.pdf" target="_blank" class="action-btn btn-primary" title="Download Computer Science CV">
+                                    <i class="fas fa-file-code"></i> Download CS CV (PDF)
+                                </a>
+                                <a href="cv_ms.pdf" target="_blank" class="action-btn btn-secondary" title="Download Materials Science CV">
+                                    <i class="fas fa-file-alt"></i> Download MS CV (PDF)
+                                </a>
+                                <a href="https://github.com/arminsalmasi" target="_blank" rel="noopener noreferrer" class="action-btn btn-outline" title="GitHub">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://www.linkedin.com/in/arminsalmasi/" target="_blank" rel="noopener noreferrer" class="action-btn btn-outline" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                                </a>
+                                <a href="https://scholar.google.se/citations?hl=en&user=nX30O0sAAAAJ" target="_blank" rel="noopener noreferrer" class="action-btn btn-outline" title="Google Scholar">
+                                    <i class="fas fa-graduation-cap"></i> Scholar
+                                </a>
+                                <a href="mailto:arminsalmasi@gmail.com" class="action-btn btn-outline" title="Email Armin">
+                                    <i class="fas fa-envelope"></i> Email
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Work Experience Section -->
-                <section class="term-section" id="experience">
-                    <div class="prompt-line">
-                        <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cmd-text">cat experience.log</span>
+                <!-- WORK EXPERIENCE PANE -->
+                <section class="tmux-pane" id="experience">
+                    <div class="pane-header">
+                        <span class="pane-tag"><i class="fas fa-briefcase"></i> PANE 0:1 // WORK EXPERIENCE</span>
+                        <span class="pane-cmd">$ tail -n 3 experience.log</span>
                     </div>
 
-                    <div class="term-output">
-                        <div class="timeline-entries">
+                    <div class="pane-body">
+                        <div class="timeline-tree">
                             <!-- Job 1 -->
-                            <div class="term-entry">
-                                <div class="entry-header">
-                                    <div class="entry-role">
-                                        <span class="bullet-symbol">&gt;&gt;</span>
-                                        <strong>Software Engineer &amp; Model Developer</strong>
+                            <article class="timeline-card">
+                                <div class="card-top">
+                                    <div class="role-badge">
+                                        <i class="fas fa-terminal text-green"></i>
+                                        <div>
+                                            <h3>Software Engineer &amp; Model Developer</h3>
+                                            <a href="https://thermocalc.com/" target="_blank" rel="noopener noreferrer" class="company-link">
+                                                <i class="fas fa-link"></i> Thermo-Calc Software AB
+                                            </a>
+                                        </div>
                                     </div>
-                                    <span class="entry-date">2023 &mdash; PRESENT</span>
+                                    <div class="date-badge"><i class="far fa-clock"></i> 2023 &mdash; Present &bull; Stockholm</div>
                                 </div>
-                                <div class="entry-company">
-                                    <a href="https://thermocalc.com/" target="_blank" rel="noopener noreferrer" class="link-cyan">@ Thermo-Calc Software AB</a>
-                                    <span class="entry-loc">// Stockholm, Sweden</span>
-                                </div>
-                                <ul class="entry-list">
-                                    <li>Architected &amp; built scalable Python backend calculation engines, REST APIs, and machine learning models for materials property predictions in production.</li>
-                                    <li>Fine-tuned Machine Learning Interatomic Potentials (MLIP backends: MACE, Meta's UMA, FAIRChem/OCP) against benchmark datasets (OC20, OC22, Materials Project).</li>
-                                    <li>Engineered agentic AI workflows and multi-agent orchestration systems leveraging LLMs, RAG, tool-use agents, and prompt engineering.</li>
-                                    <li>Automated CI/CD pipelines, testing frameworks, and high-performance compute workloads.</li>
+                                <ul class="duty-list">
+                                    <li>Designed and engineered scalable Python backend services, calculation engines, APIs, and ML models for material property predictions in a production environment.</li>
+                                    <li>Fine-tuned Machine Learning Interatomic Potentials (MLIP backends: MACE, Meta's UMA, FAIRChem/OCP) using large benchmark datasets (OC20, OC22, Materials Project).</li>
+                                    <li>Engineered agentic AI workflows and multi-agent orchestration systems leveraging LLMs, prompt engineering, RAG, and tool-use agents.</li>
+                                    <li>Built internal developer tooling, automated CI/CD pipelines, and high-performance simulation workflows.</li>
                                 </ul>
-                                <div class="tag-row">
-                                    <span class="cli-tag tag-cyan">#GenAI-Toolchain</span>
-                                    <span class="cli-tag tag-green">#MLIP-FineTuning</span>
-                                    <span class="cli-tag tag-purple">#Multi-Agent-RAG</span>
-                                    <span class="cli-tag tag-amber">#Data-Pipelines</span>
+                                <div class="pane-chips">
+                                    <span class="chip chip-green"><i class="fas fa-robot"></i> GenAI Toolchain</span>
+                                    <span class="chip chip-cyan"><i class="fas fa-atom"></i> MLIP Fine-Tuning</span>
+                                    <span class="chip chip-purple"><i class="fas fa-network-wired"></i> Multi-Agent Orchestration</span>
+                                    <span class="chip chip-amber"><i class="fas fa-database"></i> Scientific ETL</span>
                                 </div>
-                            </div>
+                            </article>
 
                             <!-- Job 2 -->
-                            <div class="term-entry">
-                                <div class="entry-header">
-                                    <div class="entry-role">
-                                        <span class="bullet-symbol">&gt;&gt;</span>
-                                        <strong>R&amp;D Simulation Specialist</strong>
+                            <article class="timeline-card">
+                                <div class="card-top">
+                                    <div class="role-badge">
+                                        <i class="fas fa-cogs text-cyan"></i>
+                                        <div>
+                                            <h3>R&amp;D Simulation Specialist</h3>
+                                            <a href="https://www.epiroc.com/" target="_blank" rel="noopener noreferrer" class="company-link">
+                                                <i class="fas fa-link"></i> Epiroc Drilling Tools AB
+                                            </a>
+                                        </div>
                                     </div>
-                                    <span class="entry-date">2023</span>
+                                    <div class="date-badge"><i class="far fa-clock"></i> 2023 &bull; Fagersta</div>
                                 </div>
-                                <div class="entry-company">
-                                    <a href="https://www.epiroc.com/" target="_blank" rel="noopener noreferrer" class="link-cyan">@ Epiroc Drilling Tools AB</a>
-                                    <span class="entry-loc">// Fagersta, Sweden</span>
-                                </div>
-                                <ul class="entry-list">
-                                    <li>Modeled physical dynamics and phase transformations under extreme high-pressure manufacturing environments.</li>
-                                    <li>Conducted advanced statistical analysis on industrial datasets to build data-driven design pipelines and minimize trial-and-error costs.</li>
+                                <ul class="duty-list">
+                                    <li>Analyzed large-scale manufacturing datasets to optimize production parameters and build data-driven design capabilities.</li>
+                                    <li>Collaborated with cross-functional engineering teams to model phase transformation dynamics and physical behavior under high-pressure conditions.</li>
                                 </ul>
-                            </div>
+                            </article>
 
                             <!-- Job 3 -->
-                            <div class="term-entry">
-                                <div class="entry-header">
-                                    <div class="entry-role">
-                                        <span class="bullet-symbol">&gt;&gt;</span>
-                                        <strong>Research Intern (Master Thesis)</strong>
+                            <article class="timeline-card">
+                                <div class="card-top">
+                                    <div class="role-badge">
+                                        <i class="fas fa-flask text-amber"></i>
+                                        <div>
+                                            <h3>Research Intern (Master Thesis)</h3>
+                                            <a href="https://www.sandvik.coromant.com/" target="_blank" rel="noopener noreferrer" class="company-link">
+                                                <i class="fas fa-link"></i> Sandvik Coromant AB
+                                            </a>
+                                        </div>
                                     </div>
-                                    <span class="entry-date">2016</span>
+                                    <div class="date-badge"><i class="far fa-clock"></i> 2016 &bull; Stockholm</div>
                                 </div>
-                                <div class="entry-company">
-                                    <a href="https://www.sandvik.coromant.com/" target="_blank" rel="noopener noreferrer" class="link-cyan">@ Sandvik Coromant AB</a>
-                                    <span class="entry-loc">// Stockholm, Sweden</span>
-                                </div>
-                                <ul class="entry-list">
-                                    <li>Performed Density Functional Theory (DFT) quantum simulations for high-entropy alloy screening.</li>
-                                    <li>Constructed diffusion simulation models to predict gradient formation during powder sintering.</li>
+                                <ul class="duty-list">
+                                    <li>Applied Density Functional Theory (DFT) quantum calculations to screen high-entropy alloy candidates.</li>
+                                    <li>Developed diffusion simulation models to predict gradient formation during sintering processes.</li>
                                 </ul>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </section>
 
-                <!-- Technical Skills Section -->
-                <section class="term-section" id="skills">
-                    <div class="prompt-line">
-                        <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cmd-text">skills --verbose --format=tree</span>
+                <!-- TECHNICAL SKILLS PANE -->
+                <section class="tmux-pane" id="skills">
+                    <div class="pane-header">
+                        <span class="pane-tag"><i class="fas fa-microchip"></i> PANE 0:2 // TECHNICAL SKILLS MATRIX</span>
+                        <span class="pane-cmd">$ tree -L 2 ~/.skills/</span>
                     </div>
 
-                    <div class="term-output">
-                        <div class="skills-cli-grid">
-                            <div class="skill-tree-card">
-                                <div class="tree-header"><span class="text-accent-cyan">[01]</span> Languages</div>
-                                <div class="tree-pills">
-                                    <code>Python (Advanced)</code>
-                                    <code>Java</code>
-                                    <code>Fortran</code>
-                                    <code>CUDA</code>
-                                    <code>SQL</code>
-                                    <code>Bash</code>
+                    <div class="pane-body">
+                        <div class="skills-grid">
+                            <!-- Category 1 -->
+                            <div class="skill-window">
+                                <div class="skill-window-header">
+                                    <i class="fas fa-code text-green"></i> <span>01 // Languages</span>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="tag">Python (Advanced)</span>
+                                    <span class="tag">Java</span>
+                                    <span class="tag">Fortran</span>
+                                    <span class="tag">CUDA</span>
+                                    <span class="tag">SQL</span>
+                                    <span class="tag">Bash</span>
                                 </div>
                             </div>
 
-                            <div class="skill-tree-card">
-                                <div class="tree-header"><span class="text-accent-green">[02]</span> AI &amp; Machine Learning</div>
-                                <div class="tree-pills">
-                                    <code>PyTorch</code>
-                                    <code>TensorFlow</code>
-                                    <code>MLIPs (MACE/UMA)</code>
-                                    <code>LLMs &amp; RAG</code>
-                                    <code>LangChain</code>
-                                    <code>Scikit-learn</code>
-                                    <code>MLflow</code>
+                            <!-- Category 2 -->
+                            <div class="skill-window">
+                                <div class="skill-window-header">
+                                    <i class="fas fa-brain text-cyan"></i> <span>02 // AI &amp; Machine Learning</span>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="tag">PyTorch</span>
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">MLIP Fine-Tuning</span>
+                                    <span class="tag">MACE / UMA / FAIRChem</span>
+                                    <span class="tag">LLMs &amp; Prompt Eng.</span>
+                                    <span class="tag">RAG</span>
+                                    <span class="tag">LangChain</span>
+                                    <span class="tag">Scikit-learn</span>
+                                    <span class="tag">MLflow</span>
                                 </div>
                             </div>
 
-                            <div class="skill-tree-card">
-                                <div class="tree-header"><span class="text-accent-amber">[03]</span> Comp. Materials &amp; Simulation</div>
-                                <div class="tree-pills">
-                                    <code>Thermo-Calc</code>
-                                    <code>DICTRA</code>
-                                    <code>TC-PRISMA</code>
-                                    <code>LAMMPS</code>
-                                    <code>VASP</code>
-                                    <code>MD / DFT</code>
-                                    <code>CALPHAD</code>
-                                    <code>ParaView</code>
+                            <!-- Category 3 -->
+                            <div class="skill-window">
+                                <div class="skill-window-header">
+                                    <i class="fas fa-atom text-purple"></i> <span>03 // Comp. Materials &amp; Simulation</span>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="tag">Thermo-Calc</span>
+                                    <span class="tag">DICTRA</span>
+                                    <span class="tag">TC-PRISMA</span>
+                                    <span class="tag">LAMMPS</span>
+                                    <span class="tag">VASP</span>
+                                    <span class="tag">Molecular Dynamics</span>
+                                    <span class="tag">DFT</span>
+                                    <span class="tag">CALPHAD</span>
+                                    <span class="tag">COMSOL</span>
+                                    <span class="tag">ParaView</span>
                                 </div>
                             </div>
 
-                            <div class="skill-tree-card">
-                                <div class="tree-header"><span class="text-accent-purple">[04]</span> HPC &amp; Distributed Systems</div>
-                                <div class="tree-pills">
-                                    <code>MPI (Fortran)</code>
-                                    <code>OpenMP</code>
-                                    <code>mpi4py</code>
-                                    <code>SLURM</code>
-                                    <code>Dask</code>
-                                    <code>PySpark</code>
-                                    <code>Celery</code>
-                                    <code>Asyncio</code>
+                            <!-- Category 4 -->
+                            <div class="skill-window">
+                                <div class="skill-window-header">
+                                    <i class="fas fa-chart-line text-amber"></i> <span>04 // Data, Stats &amp; Datasets</span>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="tag">Inferential Statistics</span>
+                                    <span class="tag">Hypothesis Testing</span>
+                                    <span class="tag">SciPy (Stats)</span>
+                                    <span class="tag">Pandas &amp; NumPy</span>
+                                    <span class="tag">MongoDB &amp; MySQL</span>
+                                    <span class="tag">Seaborn / Matplotlib</span>
+                                    <span class="tag">OC20 / OC22</span>
+                                    <span class="tag">Materials Project</span>
                                 </div>
                             </div>
 
-                            <div class="skill-tree-card">
-                                <div class="tree-header"><span class="text-accent-cyan">[05]</span> Data &amp; Analytics</div>
-                                <div class="tree-pills">
-                                    <code>SciPy (Stats)</code>
-                                    <code>Hypothesis Testing</code>
-                                    <code>Pandas &amp; NumPy</code>
-                                    <code>MongoDB</code>
-                                    <code>MySQL</code>
-                                    <code>Plotly</code>
-                                    <code>OC20/OC22</code>
+                            <!-- Category 5 -->
+                            <div class="skill-window">
+                                <div class="skill-window-header">
+                                    <i class="fas fa-server text-green"></i> <span>05 // HPC &amp; Distributed Compute</span>
+                                </div>
+                                <div class="skill-tags">
+                                    <span class="tag">MPI (Fortran)</span>
+                                    <span class="tag">OpenMP</span>
+                                    <span class="tag">mpi4py</span>
+                                    <span class="tag">SLURM</span>
+                                    <span class="tag">Dask</span>
+                                    <span class="tag">PySpark</span>
+                                    <span class="tag">Celery</span>
+                                    <span class="tag">Asyncio</span>
                                 </div>
                             </div>
 
-                            <div class="skill-tree-card">
-                                <div class="tree-header"><span class="text-accent-green">[06]</span> Platforms &amp; DevOps</div>
-                                <div class="tree-pills">
-                                    <code>Google Cloud (GCP)</code>
-                                    <code>Docker</code>
-                                    <code>Kubernetes</code>
-                                    <code>GitLab CI/CD</code>
-                                    <code>GitHub Actions</code>
-                                    <code>Jenkins</code>
-                                    <code>Git</code>
+                            <!-- Category 6 -->
+                            <div class="skill-window">
+                                <div class="skill-window-header">
+                                    <i class="fas fa-cubes text-cyan"></i> <span>06 // DevOps &amp; Cloud</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Education Section -->
-                <section class="term-section" id="education">
-                    <div class="prompt-line">
-                        <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cmd-text">grep -E "Degree|Institution" education.db</span>
-                    </div>
-
-                    <div class="term-output">
-                        <div class="edu-grid">
-                            <div class="edu-card">
-                                <div class="edu-badge">PH.D.</div>
-                                <div class="edu-details">
-                                    <h4>Ph.D., Engineering Materials Science</h4>
-                                    <p class="edu-inst"><a href="https://www.kth.se/en" target="_blank" rel="noopener noreferrer" class="link-cyan">KTH Royal Institute of Technology</a> &bull; Stockholm, Sweden</p>
-                                    <p class="edu-desc">Focus: ICME, Mass Transport Simulation, and Numerical Modeling. Teaching Assistant for master's and doctoral courses.</p>
-                                </div>
-                            </div>
-
-                            <div class="edu-card">
-                                <div class="edu-badge">M.SC.</div>
-                                <div class="edu-details">
-                                    <h4>M.Sc., Materials Science</h4>
-                                    <p class="edu-inst"><a href="https://www.kth.se/en" target="_blank" rel="noopener noreferrer" class="link-cyan">KTH Royal Institute of Technology</a> &bull; Stockholm, Sweden</p>
-                                    <p class="edu-desc">Focus: Simulation of Gradient Formation using Thermodynamic and Kinetic modeling.</p>
-                                </div>
-                            </div>
-
-                            <div class="edu-card">
-                                <div class="edu-badge">M.SC.</div>
-                                <div class="edu-details">
-                                    <h4>M.Sc., Nano Materials</h4>
-                                    <p class="edu-inst"><a href="http://merc.ac.ir/en" target="_blank" rel="noopener noreferrer" class="link-cyan">Materials &amp; Energy Research Center (MERC)</a></p>
-                                    <p class="edu-desc">Focus: Thin Film Deposition and Characterization.</p>
-                                </div>
-                            </div>
-
-                            <div class="edu-card">
-                                <div class="edu-badge">B.S.</div>
-                                <div class="edu-details">
-                                    <h4>B.S., Extractive Metallurgy</h4>
-                                    <p class="edu-inst"><a href="https://aut.ac.ir/en" target="_blank" rel="noopener noreferrer" class="link-cyan">Amirkabir University of Technology</a></p>
+                                <div class="skill-tags">
+                                    <span class="tag">Google Cloud (GCP)</span>
+                                    <span class="tag">Docker</span>
+                                    <span class="tag">Kubernetes</span>
+                                    <span class="tag">GitLab CI/CD</span>
+                                    <span class="tag">GitHub Actions</span>
+                                    <span class="tag">Jenkins</span>
+                                    <span class="tag">Git</span>
+                                    <span class="tag">Linux / macOS</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Certifications Section -->
-                <section class="term-section" id="certifications">
-                    <div class="prompt-line">
-                        <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cmd-text">certs --query=*</span>
+                <!-- EDUCATION PANE -->
+                <section class="tmux-pane" id="education">
+                    <div class="pane-header">
+                        <span class="pane-tag"><i class="fas fa-graduation-cap"></i> PANE 0:3 // ACADEMIC DEGREES</span>
+                        <span class="pane-cmd">$ cat /etc/education.conf</span>
                     </div>
 
-                    <div class="term-output">
-                        <!-- Filter Tabs -->
-                        <div class="term-filters">
-                            <span class="filter-prompt">$ filter:</span>
-                            <button class="term-filter-btn active" data-filter="all">[ALL]</button>
-                            <button class="term-filter-btn" data-filter="ai-ml">[AI &amp; ML]</button>
-                            <button class="term-filter-btn" data-filter="hpc-materials">[HPC &amp; MATERIALS]</button>
-                            <button class="term-filter-btn" data-filter="software">[SOFTWARE]</button>
+                    <div class="pane-body">
+                        <div class="edu-list">
+                            <!-- Degree 1 -->
+                            <div class="edu-entry">
+                                <div class="edu-badge-icon text-green"><i class="fas fa-user-graduate"></i></div>
+                                <div class="edu-content">
+                                    <div class="edu-title-row">
+                                        <h4>Ph.D., Engineering Materials Science</h4>
+                                        <span class="edu-date">Stockholm, Sweden</span>
+                                    </div>
+                                    <a href="https://www.kth.se/en" target="_blank" rel="noopener noreferrer" class="edu-org">
+                                        <i class="fas fa-university"></i> KTH Royal Institute of Technology
+                                    </a>
+                                    <p class="edu-focus"><strong>Research Focus:</strong> ICME, Mass Transport Simulation, and Numerical Modeling. Teaching Assistant for master's level and doctoral courses.</p>
+                                </div>
+                            </div>
+
+                            <!-- Degree 2 -->
+                            <div class="edu-entry">
+                                <div class="edu-badge-icon text-cyan"><i class="fas fa-microscope"></i></div>
+                                <div class="edu-content">
+                                    <div class="edu-title-row">
+                                        <h4>M.Sc., Materials Science</h4>
+                                        <span class="edu-date">Stockholm, Sweden</span>
+                                    </div>
+                                    <a href="https://www.kth.se/en" target="_blank" rel="noopener noreferrer" class="edu-org">
+                                        <i class="fas fa-university"></i> KTH Royal Institute of Technology
+                                    </a>
+                                    <p class="edu-focus"><strong>Research Focus:</strong> Simulation of Gradient Formation using Thermodynamic and Kinetic modeling.</p>
+                                </div>
+                            </div>
+
+                            <!-- Degree 3 -->
+                            <div class="edu-entry">
+                                <div class="edu-badge-icon text-purple"><i class="fas fa-atom"></i></div>
+                                <div class="edu-content">
+                                    <div class="edu-title-row">
+                                        <h4>M.Sc., Nano Materials</h4>
+                                        <span class="edu-date">Tehran</span>
+                                    </div>
+                                    <a href="http://merc.ac.ir/en" target="_blank" rel="noopener noreferrer" class="edu-org">
+                                        <i class="fas fa-university"></i> Materials &amp; Energy Research Center (MERC)
+                                    </a>
+                                    <p class="edu-focus"><strong>Research Focus:</strong> Thin Film Deposition and Characterization.</p>
+                                </div>
+                            </div>
+
+                            <!-- Degree 4 -->
+                            <div class="edu-entry">
+                                <div class="edu-badge-icon text-amber"><i class="fas fa-cubes"></i></div>
+                                <div class="edu-content">
+                                    <div class="edu-title-row">
+                                        <h4>B.S., Extractive Metallurgy</h4>
+                                        <span class="edu-date">Tehran</span>
+                                    </div>
+                                    <a href="https://aut.ac.ir/en" target="_blank" rel="noopener noreferrer" class="edu-org">
+                                        <i class="fas fa-university"></i> Amirkabir University of Technology
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CERTIFICATIONS PANE -->
+                <section class="tmux-pane" id="certifications">
+                    <div class="pane-header">
+                        <span class="pane-tag"><i class="fas fa-certificate"></i> PANE 0:4 // CERTIFICATIONS &amp; COURSEWORK</span>
+                        <span class="pane-cmd">$ ./query_certs.sh --verified</span>
+                    </div>
+
+                    <div class="pane-body">
+                        <!-- Filters -->
+                        <div class="cert-filters">
+                            <span class="filter-label"><i class="fas fa-filter"></i> filter:</span>
+                            <button class="filter-btn active" data-filter="all">[ALL]</button>
+                            <button class="filter-btn" data-filter="ai-ml"><i class="fas fa-brain"></i> AI &amp; ML</button>
+                            <button class="filter-btn" data-filter="hpc-materials"><i class="fas fa-server"></i> HPC &amp; Materials</button>
+                            <button class="filter-btn" data-filter="software"><i class="fas fa-code-branch"></i> Software</button>
                         </div>
 
-                        <div class="cert-cli-list">
+                        <div class="certs-container">
                             <!-- MIT -->
-                            <div class="cert-cli-item featured" data-category="ai-ml">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[ONGOING &bull; 2026]</span>
-                                    <strong class="cert-name">Applied AI &amp; Data Science Program</strong>
+                            <div class="cert-box featured-cert" data-category="ai-ml">
+                                <div class="cert-status-tag"><i class="fas fa-star text-amber"></i> ONGOING &bull; BATCH 2026</div>
+                                <div class="cert-head">
+                                    <i class="fas fa-award text-green cert-ico"></i>
+                                    <div>
+                                        <h4>Applied AI &amp; Data Science Program</h4>
+                                        <span class="cert-issuer">Massachusetts Institute of Technology (MIT)</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">Massachusetts Institute of Technology (MIT)</div>
-                                <div class="cert-cli-desc">Comprehensive curriculum covering advanced machine learning, deep learning architectures, statistical reasoning, and applied enterprise AI.</div>
+                                <p class="cert-desc">Rigorous curriculum encompassing advanced deep learning architectures, statistical machine learning foundations, and real-world applied AI solutions.</p>
                             </div>
 
                             <!-- DeepLearning.AI -->
-                            <div class="cert-cli-item" data-category="ai-ml">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Supervised Machine Learning: Regression &amp; Classification</strong>
+                            <div class="cert-box" data-category="ai-ml">
+                                <div class="cert-head">
+                                    <i class="fas fa-check-circle text-green cert-ico"></i>
+                                    <div>
+                                        <h4>Supervised Machine Learning: Regression &amp; Classification</h4>
+                                        <span class="cert-issuer">DeepLearning.AI</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">DeepLearning.AI</div>
                             </div>
 
-                            <div class="cert-cli-item" data-category="ai-ml">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Improving Deep Neural Networks: Hyperparameter Tuning, Regularization &amp; Optimization</strong>
+                            <div class="cert-box" data-category="ai-ml">
+                                <div class="cert-head">
+                                    <i class="fas fa-check-circle text-green cert-ico"></i>
+                                    <div>
+                                        <h4>Improving Deep Neural Networks: Hyperparameter Tuning &amp; Regularization</h4>
+                                        <span class="cert-issuer">DeepLearning.AI</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">DeepLearning.AI</div>
                             </div>
 
-                            <div class="cert-cli-item" data-category="ai-ml">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Neural Networks &amp; Deep Learning</strong>
+                            <div class="cert-box" data-category="ai-ml">
+                                <div class="cert-head">
+                                    <i class="fas fa-check-circle text-green cert-ico"></i>
+                                    <div>
+                                        <h4>Neural Networks &amp; Deep Learning</h4>
+                                        <span class="cert-issuer">DeepLearning.AI</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">DeepLearning.AI</div>
                             </div>
 
-                            <div class="cert-cli-item" data-category="ai-ml">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Structuring Machine Learning Projects</strong>
+                            <div class="cert-box" data-category="ai-ml">
+                                <div class="cert-head">
+                                    <i class="fas fa-check-circle text-green cert-ico"></i>
+                                    <div>
+                                        <h4>Structuring Machine Learning Projects</h4>
+                                        <span class="cert-issuer">DeepLearning.AI</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">DeepLearning.AI</div>
                             </div>
 
-                            <div class="cert-cli-item" data-category="ai-ml">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Practical Deep Learning (HPC)</strong>
+                            <div class="cert-box" data-category="ai-ml">
+                                <div class="cert-head">
+                                    <i class="fas fa-check-circle text-green cert-ico"></i>
+                                    <div>
+                                        <h4>Practical Deep Learning (HPC)</h4>
+                                        <span class="cert-issuer">ENCCS (EuroCC Sweden)</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">ENCCS (EuroCC Sweden)</div>
                             </div>
 
                             <!-- Software -->
-                            <div class="cert-cli-item" data-category="software">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">CodeRefinery (Software Development)</strong>
+                            <div class="cert-box" data-category="software">
+                                <div class="cert-head">
+                                    <i class="fas fa-code-branch text-cyan cert-ico"></i>
+                                    <div>
+                                        <h4>CodeRefinery (Software Development)</h4>
+                                        <span class="cert-issuer">Nordic e-Infrastructure Collaboration (NeIC)</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">NeIC</div>
-                                <div class="cert-cli-desc">Git, GitHub, reproducible research, modular code design, automated testing, continuous integration.</div>
+                                <p class="cert-desc">Git, GitHub, reproducible workflows, modular software development, automated testing, and CI/CD.</p>
                             </div>
 
-                            <div class="cert-cli-item" data-category="software">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">The Unix Workbench</strong>
+                            <div class="cert-box" data-category="software">
+                                <div class="cert-head">
+                                    <i class="fab fa-python text-amber cert-ico"></i>
+                                    <div>
+                                        <h4>Python Basics, Functions, Files, and Dictionaries</h4>
+                                        <span class="cert-issuer">University of Michigan</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">Johns Hopkins University</div>
                             </div>
 
-                            <div class="cert-cli-item" data-category="software">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Python Basics, Functions, and Data Structures</strong>
+                            <div class="cert-box" data-category="software">
+                                <div class="cert-head">
+                                    <i class="fas fa-terminal text-cyan cert-ico"></i>
+                                    <div>
+                                        <h4>The Unix Workbench</h4>
+                                        <span class="cert-issuer">Johns Hopkins University</span>
+                                    </div>
                                 </div>
-                                <div class="cert-cli-org">University of Michigan</div>
                             </div>
 
                             <!-- HPC & Materials -->
-                            <div class="cert-cli-item" data-category="hpc-materials">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">Software Tools: ML to Phase Diagrams</strong>
-                                </div>
-                                <div class="cert-cli-org">Materials Genome Foundation (MGF)</div>
-                            </div>
-
-                            <div class="cert-cli-item" data-category="hpc-materials">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">CAMD Summer School on Electronic Structure Theory &amp; Materials Design (DFT)</strong>
-                                </div>
-                                <div class="cert-cli-org">DTU Physics, Denmark</div>
-                            </div>
-
-                            <div class="cert-cli-item" data-category="hpc-materials">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">CSC HPC Summer School (Parallel Programming, MPI/OpenMP)</strong>
-                                </div>
-                                <div class="cert-cli-org">CSC &bull; Solvalla, Finland</div>
-                            </div>
-
-                            <div class="cert-cli-item" data-category="hpc-materials">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">PDC HPC Summer School</strong>
-                                </div>
-                                <div class="cert-cli-org">PDC Center for High Performance Computing &bull; KTH</div>
-                            </div>
-
-                            <div class="cert-cli-item" data-category="hpc-materials">
-                                <div class="cert-cli-header">
-                                    <span class="tag-status">[VERIFIED]</span>
-                                    <strong class="cert-name">RACIRI Summer School on Synchrotron &amp; Neutron Diffraction</strong>
-                                </div>
-                                <div class="cert-cli-org">R&uuml;gen, Germany</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Publications Section -->
-                <section class="term-section" id="publications">
-                    <div class="prompt-line">
-                        <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cmd-text">curl -s "https://scholar.google.com/citations?user=nX30O0sAAAAJ" | head -n 8</span>
-                    </div>
-
-                    <div class="term-output">
-                        <div class="pub-cli-header">
-                            <a href="https://scholar.google.se/citations?hl=en&user=nX30O0sAAAAJ" target="_blank" rel="noopener noreferrer" class="link-cyan">
-                                <i class="fas fa-external-link-alt"></i> View Full Google Scholar Profile
-                            </a>
-                            <span class="meta-separator">|</span>
-                            <a href="https://kth.diva-portal.org/smash/person.jsf?pid=authority-person%3A83160&dswid=5132" target="_blank" rel="noopener noreferrer" class="link-cyan">
-                                <i class="fas fa-link"></i> DiVA Portal
-                            </a>
-                        </div>
-
-                        <div class="pub-cli-entries">
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[01]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">High entropy alloys: Substituting for cobalt in cutting edge technology</div>
-                                    <div class="pub-meta">Holmstr&ouml;m, E., Liz&aacute;rraga, R., Linder, D., <span class="text-accent-cyan">Salmasi, A.</span>, et al. (2018) &mdash; <em class="text-accent-green">Applied Materials Today</em>, 12, 322–329.</div>
+                            <div class="cert-box" data-category="hpc-materials">
+                                <div class="cert-head">
+                                    <i class="fas fa-atom text-purple cert-ico"></i>
+                                    <div>
+                                        <h4>Software Tools: ML to Phase Diagrams</h4>
+                                        <span class="cert-issuer">Materials Genome Foundation (MGF)</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[02]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Predicting wear mechanisms of ultra-hard tooling in machining Ti6Al4V by diffusion couples and simulation</div>
-                                    <div class="pub-meta">Lindvall, R., Bjerke, A., <span class="text-accent-cyan">Salmasi, A.</span>, et al. (2023) &mdash; <em class="text-accent-green">J. Eur. Ceram. Soc.</em>, 43(2), 291–303.</div>
+                            <div class="cert-box" data-category="hpc-materials">
+                                <div class="cert-head">
+                                    <i class="fas fa-layer-group text-green cert-ico"></i>
+                                    <div>
+                                        <h4>CAMD Summer School on Electronic Structure Theory &amp; Materials Design (DFT)</h4>
+                                        <span class="cert-issuer">DTU Physics, Denmark</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[03]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Chemical interactions during machining and in diffusion couples</div>
-                                    <div class="pub-meta">Graves, A., <span class="text-accent-cyan">Salmasi, A.</span>, Graham, S. J., et al. (2023) &mdash; <em class="text-accent-green">Wear</em>, 516–517, 204604.</div>
+                            <div class="cert-box" data-category="hpc-materials">
+                                <div class="cert-head">
+                                    <i class="fas fa-server text-cyan cert-ico"></i>
+                                    <div>
+                                        <h4>CSC HPC Summer School (MPI / OpenMP / Parallel I/O)</h4>
+                                        <span class="cert-issuer">CSC &bull; Solvalla, Finland</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[04]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Mobilities of Ti and Fe in disordered TiFe-BCC</div>
-                                    <div class="pub-meta"><span class="text-accent-cyan">Salmasi, A.</span>, Graham, S. J., Galbraith, I., et al. (2021) &mdash; <em class="text-accent-green">CALPHAD</em>, 74, 102300.</div>
+                            <div class="cert-box" data-category="hpc-materials">
+                                <div class="cert-head">
+                                    <i class="fas fa-server text-cyan cert-ico"></i>
+                                    <div>
+                                        <h4>PDC HPC Summer School (Parallel Architectures)</h4>
+                                        <span class="cert-issuer">PDC Center for High Performance Computing &bull; KTH</span>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[05]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Solidification time during TLP bonding of Ni-based superalloys</div>
-                                    <div class="pub-meta">Pouranvari, M., Ghasemi, A., &amp; <span class="text-accent-cyan">Salmasi, A.</span> (2022) &mdash; <em class="text-accent-green">Metall. Mater. Trans. A</em>, 53(1), 126–135.</div>
-                                </div>
-                            </div>
-
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[06]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Microstructural evolution and mechanical properties of graded carbides</div>
-                                    <div class="pub-meta"><span class="text-accent-cyan">Salmasi, A.</span>, Blomqvist, A., &amp; Larsson, H. (2019) &mdash; <em class="text-accent-green">Results in Materials</em>, 1, 100008.</div>
-                                </div>
-                            </div>
-
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[07]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Liquid phase migration in cemented carbides</div>
-                                    <div class="pub-meta"><span class="text-accent-cyan">Salmasi, A.</span>, Hanif, I., Jonsson, T., &amp; Larsson, H. (2023) &mdash; <em class="text-accent-green">Int. J. Refract. Met. Hard Mater.</em>, 112, 106118.</div>
-                                </div>
-                            </div>
-
-                            <div class="pub-cli-entry">
-                                <span class="pub-num">[08]</span>
-                                <div class="pub-content">
-                                    <div class="pub-title">Viscosity of liquid cobalt from ab-initio molecular dynamics</div>
-                                    <div class="pub-meta"><span class="text-accent-cyan">Salmasi, A.</span>, Forslund, A., &amp; Ruban, A. V. (2022) &mdash; <em class="text-accent-green">Manuscript</em></div>
+                            <div class="cert-box" data-category="hpc-materials">
+                                <div class="cert-head">
+                                    <i class="fas fa-radiation-alt text-amber cert-ico"></i>
+                                    <div>
+                                        <h4>RACIRI Summer School on Synchrotron &amp; Neutron Diffraction</h4>
+                                        <span class="cert-issuer">R&uuml;gen, Germany</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Terminal Bottom Prompt -->
-                <div class="terminal-footer-prompt">
-                    <span class="prompt-user">armin@salmasi</span><span class="prompt-sym">:~$</span> <span class="cursor-blink">█</span>
-                </div>
+                <!-- SELECTED PUBLICATIONS PANE -->
+                <section class="tmux-pane" id="publications">
+                    <div class="pane-header">
+                        <span class="pane-tag"><i class="fas fa-book"></i> PANE 0:5 // SELECTED PUBLICATIONS</span>
+                        <span class="pane-cmd">$ curl -s "scholar.google.com/citations"</span>
+                    </div>
+
+                    <div class="pane-body">
+                        <div class="pub-toolbar">
+                            <a href="https://scholar.google.se/citations?hl=en&user=nX30O0sAAAAJ" target="_blank" rel="noopener noreferrer" class="link-btn">
+                                <i class="fas fa-graduation-cap text-green"></i> Google Scholar Profile
+                            </a>
+                            <a href="https://kth.diva-portal.org/smash/person.jsf?pid=authority-person%3A83160&dswid=5132" target="_blank" rel="noopener noreferrer" class="link-btn">
+                                <i class="fas fa-link text-cyan"></i> KTH DiVA Portal
+                            </a>
+                        </div>
+
+                        <div class="pub-grid">
+                            <article class="pub-card">
+                                <span class="pub-index">[01]</span>
+                                <div class="pub-body">
+                                    <h5>High entropy alloys: Substituting for cobalt in cutting edge technology</h5>
+                                    <p class="pub-authors">Holmstr&ouml;m, E., Liz&aacute;rraga, R., Linder, D., <strong class="text-green">Salmasi, A.</strong>, et al. (2018)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Applied Materials Today, 12, 322–329</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[02]</span>
+                                <div class="pub-body">
+                                    <h5>Predicting wear mechanisms of ultra-hard tooling in machining Ti6Al4V by diffusion couples and simulation</h5>
+                                    <p class="pub-authors">Lindvall, R., Bjerke, A., <strong class="text-green">Salmasi, A.</strong>, et al. (2023)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Journal of the European Ceramic Society, 43(2), 291–303</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[03]</span>
+                                <div class="pub-body">
+                                    <h5>Chemical interactions during machining and in diffusion couples</h5>
+                                    <p class="pub-authors">Graves, A., <strong class="text-green">Salmasi, A.</strong>, Graham, S. J., et al. (2023)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Wear, 516–517, 204604</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[04]</span>
+                                <div class="pub-body">
+                                    <h5>Mobilities of Ti and Fe in disordered TiFe-BCC</h5>
+                                    <p class="pub-authors"><strong class="text-green">Salmasi, A.</strong>, Graham, S. J., Galbraith, I., et al. (2021)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> CALPHAD, 74, 102300</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[05]</span>
+                                <div class="pub-body">
+                                    <h5>Solidification time during TLP bonding of Ni-based superalloys</h5>
+                                    <p class="pub-authors">Pouranvari, M., Ghasemi, A., &amp; <strong class="text-green">Salmasi, A.</strong> (2022)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Metallurgical and Materials Transactions A, 53(1), 126–135</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[06]</span>
+                                <div class="pub-body">
+                                    <h5>Microstructural evolution and mechanical properties of graded carbides</h5>
+                                    <p class="pub-authors"><strong class="text-green">Salmasi, A.</strong>, Blomqvist, A., &amp; Larsson, H. (2019)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Results in Materials, 1, 100008</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[07]</span>
+                                <div class="pub-body">
+                                    <h5>Liquid phase migration in cemented carbides</h5>
+                                    <p class="pub-authors"><strong class="text-green">Salmasi, A.</strong>, Hanif, I., Jonsson, T., &amp; Larsson, H. (2023)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Int. Journal of Refractory Metals and Hard Materials, 112, 106118</span>
+                                </div>
+                            </article>
+
+                            <article class="pub-card">
+                                <span class="pub-index">[08]</span>
+                                <div class="pub-body">
+                                    <h5>Viscosity of liquid cobalt from ab-initio molecular dynamics</h5>
+                                    <p class="pub-authors"><strong class="text-green">Salmasi, A.</strong>, Forslund, A., &amp; Ruban, A. V. (2022)</p>
+                                    <span class="pub-journal"><i class="fas fa-book-open"></i> Manuscript</span>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
 
-        <footer class="terminal-bottom">
-            <p>&copy; <span id="year"></span> Armin Salmasi &bull; Terminal Session Initialized</p>
-        </footer>
-    </main>
+            <!-- Tmux Bottom Powerline Status Bar -->
+            <footer class="tmux-statusbar">
+                <div class="statusbar-left">
+                    <span class="status-seg seg-session"><i class="fas fa-terminal"></i> [armin]</span>
+                    <span class="status-seg seg-active-tab"><i class="fas fa-window-restore"></i> 0:profile*</span>
+                </div>
+                <div class="statusbar-right">
+                    <span class="status-seg seg-info"><i class="fas fa-map-marker-alt"></i> Stockholm</span>
+                    <span class="status-seg seg-date"><i class="far fa-calendar-alt"></i> <span id="current-date"></span></span>
+                    <span class="status-seg seg-user"><i class="fas fa-user-circle"></i> armin@salmasi</span>
+                </div>
+            </footer>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
