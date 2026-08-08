@@ -40,6 +40,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--hb-bg);
 }
 
 body.homebrew-theme {
@@ -86,7 +87,7 @@ body.homebrew-theme {
     background-size: 100% 3px, 6px 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.4;
+    opacity: 0.35;
 }
 
 /* Wrapper */
