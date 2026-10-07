@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Robotic Typewriter Effect
     const titles = [
+        "Materials Engineer | CALPHAD, ICME & Scientific ML Expert",
         "Software Engineer & Model Developer @ Thermo-Calc",
         "Computational Materials Scientist (Ph.D. KTH)",
-        "Agentic AI & Multi-Agent Orchestration Architect",
-        "MLIP Fine-Tuning (MACE, Meta's UMA, FAIRChem)",
+        "AI / ML Engineer & Data Scientist (MIT Applied AI)",
+        "MLIP Fine-Tuning & Multi-Agent RAG Architect",
         "High-Performance Computing & Scientific Simulation"
     ];
 
@@ -102,14 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            const filter = btn.getAttribute('data-filter');
+            const filterValue = btn.getAttribute('data-filter');
 
             certBoxes.forEach(box => {
-                if (filter === 'all') {
+                if (filterValue === 'all') {
                     box.classList.remove('hidden');
                 } else {
                     const category = box.getAttribute('data-category');
-                    if (category === filter) {
+                    if (category === filterValue) {
                         box.classList.remove('hidden');
                     } else {
                         box.classList.add('hidden');
