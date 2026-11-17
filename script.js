@@ -9,12 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Robotic Typewriter Effect
     const titles = [
-        "Materials Engineer | CALPHAD, ICME & Scientific ML Expert",
-        "Software Engineer & Model Developer @ Thermo-Calc",
         "Computational Materials Scientist (Ph.D. KTH)",
-        "AI / ML Engineer & Data Scientist (MIT Applied AI)",
-        "MLIP Fine-Tuning & Multi-Agent RAG Architect",
-        "High-Performance Computing & Scientific Simulation"
+        "Software Engineer & Model Developer @ Thermo-Calc",
+        "Materials Science x Machine Learning",
+        "MLIP Fine-Tuning, CALPHAD & DFT",
+        "Scientific Software & HPC Workflows"
     ];
 
     const typewriterEl = document.getElementById('typewriter');
