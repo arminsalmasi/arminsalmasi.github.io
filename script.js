@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const titles = [
         "Computational Materials Scientist (Ph.D. KTH)",
         "Software Engineer & Model Developer @ Thermo-Calc",
-        "Materials Science x Machine Learning",
+        "Materials Science x AI",
         "MLIP Fine-Tuning, CALPHAD & DFT",
         "Scientific Software & HPC Workflows"
     ];
